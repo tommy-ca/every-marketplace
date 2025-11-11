@@ -182,7 +182,7 @@ Each component of this plugin doesn't just solve today's problem—it makes tomo
 ### Knowledge Assets Built During Work
 
 - **Standards Catalog:** Each `/review` surfaces team patterns → `/triage` + `/feedback-codifier` store them
-- **TODO Repository:** `/triage` creates `todos/` as decision records → future `/work` runs reference them
+- **Knowledge Repository:** `/triage` creates structured decision records → future `/work` runs reference them
 - **Implementation Patterns:** `/plan` studies your codebase → each `/work` run reuses those patterns
 - **Architecture Knowledge:** `/review` agents learn from feedback → `/generate_command` can codify your conventions
 
@@ -317,7 +317,7 @@ claude /compounding-engineering:work [PATH_TO_PLAN]
 claude /compounding-engineering:work docs/oauth-feature.md
 
 # Work on a TODO item
-claude /compounding-engineering:work todos/042-approved-p1-fix.md
+claude /compounding-engineering:work issues/042-approved-p1-fix.md
 
 # Execute current plan
 claude /compounding-engineering:work
@@ -462,7 +462,7 @@ Do you want to add this to the todo list?
 
 **User Options:**
 
-- **yes** - Creates `{id}-pending-{priority}-{description}.md` in `todos/`
+- **yes** - Creates `{id}-pending-{priority}-{description}.md` in `issues/`
 - **next** - Skips this finding
 - **custom** - Modify details before creating
 
@@ -473,7 +473,7 @@ Do you want to add this to the todo list?
 - Organizing work items
 - Prioritizing technical debt
 
-**Output:** TODO files in `todos/` directory ready for work
+**Output:** Issue files in `issues/` directory ready for work
 
 **Related Commands:** `/review` to generate findings, `/resolve_todo_parallel` to fix issues
 
@@ -540,7 +540,7 @@ claude /compounding-engineering:resolve_todo_parallel
 
 **What It Does:**
 
-1. Scans `todos/` directory for unresolved items
+1. Scans `issues/` directory for unresolved items
 2. Analyzes dependencies between TODOs
 3. Creates execution plan with Mermaid diagram
 4. Spawns parallel `pr-comment-resolver` agents
@@ -1349,8 +1349,8 @@ claude /compounding-engineering:triage
 # Creates: Priority-ordered TODO files for vulnerabilities
 
 # Step 3: Fix critical issues first
-ls todos/*-pending-p1-*.md
-claude /compounding-engineering:work todos/042-pending-p1-sql-injection.md
+ls issues/*-pending-p1-*.md
+claude /compounding-engineering:work issues/042-pending-p1-sql-injection.md
 # Fix critical vulnerabilities
 
 # Step 4: Verify fixes
@@ -1478,19 +1478,19 @@ claude agent compounding-engineering:kieran-rails-reviewer "review this code"
 
 ---
 
-### Todo System Setup
+### Issue System Setup
 
-**Issue:** `/triage` can't create TODO files
+**Issue:** `/triage` can't create issue files
 
 ```bash
-# Create todos directory
-mkdir -p todos
+# Create issues directory
+mkdir -p issues
 
 # Copy template
-cp plugins/compounding-engineering/todos/000-pending-p1-TEMPLATE.md todos/
+# cp plugins/compounding-engineering/todos/000-pending-p1-TEMPLATE.md issues/
 ```
 
-**Issue:** TODO files have wrong format
+**Issue:** Issue files have wrong format
 
 - Use `/triage` to create them (handles formatting)
 - Copy from existing TODOs as templates
