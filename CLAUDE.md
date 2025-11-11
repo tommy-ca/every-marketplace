@@ -2,6 +2,8 @@
 
 This repository is a Claude Code plugin marketplace that distributes the `compounding-engineering` plugin to developers building with AI-powered tools.
 
+**Note:** This is the enhanced fork (tommy-ca/every-marketplace) that serves as the authoritative source for the compounding-engineering plugin with comprehensive standardization improvements. The upstream repository (EveryInc/every-marketplace) is tracked for reference but all development occurs in this fork.
+
 ## Repository Structure
 
 ```

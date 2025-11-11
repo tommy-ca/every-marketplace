@@ -1,6 +1,6 @@
 # Every Marketplace
 
-The official Every marketplace where engineers from Every.to share their workflows. Currently featuring the Compounding Engineering Philosophy plugin.
+A Claude Code plugin marketplace featuring the Compounding Engineering Philosophy plugin. This fork maintains the enhanced version with comprehensive standardization improvements.
 
 ## Quick Start
 
@@ -8,7 +8,7 @@ The official Every marketplace where engineers from Every.to share their workflo
 Run Claude and add the marketplace:
 
 ```bash
-/plugin marketplace add https://github.com/EveryInc/every-marketplace
+/plugin marketplace add https://github.com/tommy-ca/every-marketplace
 ```
 
 Then install the plugin:
@@ -21,7 +21,7 @@ Then install the plugin:
 Use the [Claude Plugins CLI](https://claude-plugins.dev) to skip the marketplace setup:
 
 ```bash
-npx claude-plugins install @EveryInc/every-marketplace/compounding-engineering
+npx claude-plugins install @tommy-ca/every-marketplace/compounding-engineering
 ```
 
 This automatically adds the marketplace and installs the plugin in a single step.
